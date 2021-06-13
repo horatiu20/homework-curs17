@@ -17,7 +17,7 @@ public class Main {
 		System.out.println("-- 2. --" + personService.getMajorPersons());
 		System.out.println("-- 3. --" + personService.getPersonsFrom());
 		System.out.println("-- 4. --" + personService.getPersonsFrom2());
-		System.out.println("-- 5. --" + personService.getFirstLetterCapitalised());
+		System.out.println("-- 5. --" + personService.getFirstNamesCapitalised());
 		System.out.println("-- 6. --" + personService.getAllNames2());
 		System.out.println("-- 7. --" + personService.getBetweenAges());
 		System.out.println("-- 8. --" + personService.getByFirstLetter());

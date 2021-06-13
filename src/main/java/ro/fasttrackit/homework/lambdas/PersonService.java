@@ -58,11 +58,10 @@ public class PersonService {
 		return allNames;
 	}
 
-	public List<Character> getFirstLetterCapitalised() {
-		List<Character> allNames = persons.stream()
+	public List<String> getFirstNamesCapitalised() {
+		List<String> allNames = persons.stream()
 				.map(Person::getFirstName)
-				.map(firstName -> firstName.charAt(0))
-				.map(character -> Character.toUpperCase(character))
+				.map(firstName -> firstName.toUpperCase())
 				.collect(Collectors.toList());
 		return allNames;
 	}
