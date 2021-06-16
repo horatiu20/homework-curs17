@@ -39,21 +39,21 @@ public class PersonService {
 
 	public List<Person> getMajorPersons() {
 		List<Person> allNames = persons.stream()
-				.filter(person -> person.getAge() > 18)
+				.filter(person -> person.getAge() >= 18)
 				.collect(Collectors.toList());
 		return allNames;
 	}
 
 	public List<Person> getPersonsFrom() {
 		List<Person> allNames = persons.stream()
-				.filter(person -> person.getCity().equals("Oradea"))
+				.filter(person -> person.getCity().equalsIgnoreCase("Oradea"))
 				.collect(Collectors.toList());
 		return allNames;
 	}
 
 	public List<Person> getPersonsFrom2() {
 		List<Person> allNames = persons.stream()
-				.filter(person -> person.getCity().equals("Cluj") || person.getCity().equals("Oradea"))
+				.filter(person -> person.getCity().equalsIgnoreCase("Cluj") || person.getCity().equalsIgnoreCase("Oradea"))
 				.collect(Collectors.toList());
 		return allNames;
 	}
@@ -113,7 +113,9 @@ public class PersonService {
 
 	public List<Person> moreSorting() {
 		List<Person> allNames = persons.stream()
-				.sorted(Comparator.comparing(Person::getFirstName).thenComparing(Person::getLastName).thenComparing(Person::getAge))
+				.sorted(Comparator.comparing(Person::getFirstName)
+						.thenComparing(Person::getLastName)
+						.thenComparing(Person::getAge))
 				.collect(Collectors.toList());
 		return allNames;
 	}
