@@ -19,7 +19,8 @@ ExtraMile: UnitTests
 - write unit tests for the previous exercise*/
 
 import java.util.*;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class PersonService {
 	private final List<Person> persons = new ArrayList<>();
@@ -33,28 +34,28 @@ public class PersonService {
 	public List<String> getAllNames() {
 		List<String> allNames = persons.stream()
 				.map(person -> person.getFirstName() + " " + person.getLastName())
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
 	public List<Person> getMajorPersons() {
 		List<Person> allNames = persons.stream()
 				.filter(person -> person.getAge() >= 18)
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
 	public List<Person> getPersonsFrom() {
 		List<Person> allNames = persons.stream()
 				.filter(person -> person.getCity().equalsIgnoreCase("Oradea"))
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
 	public List<Person> getPersonsFrom2() {
 		List<Person> allNames = persons.stream()
 				.filter(person -> person.getCity().equalsIgnoreCase("Cluj") || person.getCity().equalsIgnoreCase("Oradea"))
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
@@ -62,14 +63,14 @@ public class PersonService {
 		List<String> allNames = persons.stream()
 				.map(Person::getFirstName)
 				.map(firstName -> firstName.toUpperCase())
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
 	public List<String> getAllNames2() {
 		List<String> allNames = persons.stream()
 				.map(person -> person.getFirstName() + " " + person.getLastName().charAt(0) + ".")
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
@@ -77,21 +78,21 @@ public class PersonService {
 		List<Person> allNames = persons.stream()
 				.filter(person -> person.getAge() < 60)
 				.filter(person -> person.getAge() > 18)
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
 	public List<Person> getByFirstLetter() {
 		List<Person> allNames = persons.stream()
 				.filter(person -> person.getFirstName().contains("A"))
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
 	public List<String> getUniqueNames() {
 		List<String> allNames = persons.stream()
 				.map(Person::getFirstName).distinct()
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
@@ -99,7 +100,7 @@ public class PersonService {
 		List<String> allNames = persons.stream()
 				.map(Person::getFirstName)
 				.sorted()
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
@@ -107,7 +108,7 @@ public class PersonService {
 		List<String> allNames = persons.stream()
 				.map(Person::getLastName)
 				.sorted()
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 
@@ -116,7 +117,7 @@ public class PersonService {
 				.sorted(Comparator.comparing(Person::getFirstName)
 						.thenComparing(Person::getLastName)
 						.thenComparing(Person::getAge))
-				.collect(Collectors.toList());
+				.collect(toList());
 		return allNames;
 	}
 }
